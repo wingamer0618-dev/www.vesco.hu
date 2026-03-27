@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Interaktív Oldalam</title>
+    <style>
+        /* Itt van a CSS - a kinézet */
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; background-color: #f0f8ff; }
+        .box { background: white; padding: 20px; border-radius: 10px; display: inline-block; shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        button { background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h1>Üdvözöllek a weboldalamon!</h1>
+        <p>Hogy hívnak?</p>
+        <input type="text" id="nevMezo" placeholder="Írd ide a neved...">
+        <button onclick="koszontes()">Kattints rám!</button>
+        <h2 id="uzenet"></h2>
+    </div>
+
+    <script>
+        /* Itt a JavaScript - az interakció */
+        function koszontes() {
+            // Megkeressük a szövegdobozt a neve alapján
+            let nev = document.getElementById("nevMezo").value;
+            
+            // Ha üres, szólunk, ha nem, köszönünk
+            if (nev === "") {
+                document.getElementById("uzenet").innerHTML = "Kérlek, írd be a neved!";
+                document.getElementById("uzenet").style.color = "red";
+            } else {
+                document.getElementById("uzenet").innerHTML = "Szia " + nev + "! Örülök, hogy itt vagy!";
+                document.getElementById("uzenet").style.color = "green";
+            }
+        }
+    </script>
+
+</body>
+</html>
