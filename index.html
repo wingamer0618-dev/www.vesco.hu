@@ -1,6 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Az Első Weboldalam</title>
+    <style>
+        /* CSS - A weboldal kinézete */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f3;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s ease;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+        }
+        h1 { color: #2c3e50; }
+        p { color: #7f8c8d; }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        #valasz {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
 <body>
-  <h1>Helló Világ! Ez az első GitHub oldalam.</h1>
+
+    <div class="container">
+        <h1>Üdv az oldalamon! 👋</h1>
+        <p>Ez már nem "Under Construction", hanem a saját kódom!</p>
+        
+        <input type="text" id="nevInput" placeholder="Hogy hívnak?">
+        <br>
+        <button onclick="inditas()">Kattints a varázslathoz!</button>
+        
+        <div id="valasz"></div>
+    </div>
+
+    <script>
+        /* JavaScript - Az interakció */
+        function inditas() {
+            const nev = document.getElementById('nevInput').value;
+            const valaszHelye = document.getElementById('valasz');
+            
+            if (nev.trim() === "") {
+                valaszHelye.innerHTML = "Hé, elfelejtetted beírni a neved! 🤔";
+                valaszHelye.style.color = "#e74c3c";
+            } else {
+                valaszHelye.innerHTML = "Szia " + nev + "! Ez az oldal most már a tiéd! 🎉";
+                valaszHelye.style.color = "#27ae60";
+                
+                // Extra interakció: megváltoztatjuk a háttérszínt véletlenszerűre
+                const színek = ['#D1F2EB', '#D6EAF8', '#FCF3CF', '#D5F5E3', '#FADBD8'];
+                const randomSzin = színek[Math.floor(Math.random() * színek.length)];
+                document.body.style.backgroundColor = randomSzin;
+            }
+        }
+    </script>
+
 </body>
 </html>
